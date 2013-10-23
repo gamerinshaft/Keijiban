@@ -1,0 +1,79 @@
+/*index page*/
+#time{
+	background-color: green;
+}
+
+#haikei-index{	
+		background-image: url(plant5.jpeg);
+		background-repeat:repeat;
+		background-position:left; 
+		background-size: 400px 350px;
+		background-attachment: fixed;
+}
+#toumei{
+	background-color:rgba(146,180,255,0.2);
+}
+#title{
+	color: yellow;
+	text-align:center;
+	font-size:90px;
+	text-shadow: 5px 5px 1px red;
+}
+
+#boardlist{
+	color: yellow;
+	text-shadow: 5px 5px 1px red;
+	font-size:60px;
+}
+
+
+
+#boardname{
+	 color: brown;
+	font-size: 45px;
+        text-shadow: 3px 3px 4px red;
+}
+
+
+/*show page*/
+
+
+#user{
+	color: red;	
+}
+
+#edit{
+      background-color: green;
+} 
+
+#time{
+	color: white;
+}
+
+
+#body{
+        background-image: url("plant1.jpg");
+        background-repeat: repeat-y;
+        background-position: center;
+	background-attachment: fixed;
+}
+
+
+
+/*board all */
+a:link{
+	color: yellow;
+}
+
+a:visited{
+	color: orange;
+}
+
+a:hover{
+	color: red;
+}
+
+a:active{
+	color: blue;
+} 
+

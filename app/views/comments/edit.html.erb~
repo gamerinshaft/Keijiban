@@ -1,0 +1,22 @@
+<h2>Edit Comment</h2>
+<% if @comment.errors.any? %>
+  <h3>Some errors have occured.</h3>
+  <% @comment.errors.full_messages.each do |e| %>
+    <%= e %>
+  <% end %>
+<% end %>
+
+<%= form_for [@board,@comment] do |f| %>
+  <%= f.text_field :username,placeholder: 'user name' %>
+  <br>
+  <%= f.text_area :content,placeholder: 'comment' %>
+  <br>
+  <%= f.file_field :image %>
+  <br>
+  <%= f.text_field :remote_image_url %>
+  <br>
+  <%= f.submit %>
+<% end %>
+<hr>
+
+<%= link_to 'back to board',board_path(@board) %>

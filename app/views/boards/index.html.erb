@@ -1,0 +1,28 @@
+<body id="haikei-index">
+<div id="toumei">
+<h1 id="title">Communicate Boards</h1>
+
+<h1 id="boardlist">Boards list</h1>
+<h2>
+<div id="toumei">
+<% @boards.each do |b| %>
+<div id="boardname">
+  <%= b.name %>
+  <%= link_to 'show',board_path(b) %>
+</div>
+
+<span id="time">
+  <%= b.created_at %>
+</span>
+<% end %>
+
+</div>
+</h2>
+
+<hr>
+<h3>
+<%= link_to 'new board',new_board_path() %>
+</h3>
+</div>
+</div>
+</body>

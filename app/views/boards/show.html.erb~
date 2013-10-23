@@ -1,0 +1,59 @@
+<body id="body">
+<h1><%= @board.name %></h1>
+
+<hr>
+
+<% if @board.errors.any? %>
+  <h2>Somer errors have occured.</h2>
+  <% @board.errors.full_messages.each do |e| %>
+    <%= e %>
+  <% end %>
+  <hr>
+<% end %>
+<h3>Comments</h3>
+<% @board.comments.each do |c| %>
+<span id="edit">
+  <p>
+  <hr>
+  <span id="time">
+  <%= c.created_at.strftime("%Y/%M/%D") %>
+  </span>
+  <span class="link">
+  <%= link_to 'edit this comment',edit_board_comment_path(@board,c) %>
+  <%= link_to 'delete this comment',board_comment_path(@board,c),method: :delete,confirm: 'Are you ok?' %>
+  </span>
+  <hr>
+  </p>
+</span>
+  <span id="user" >
+  <%= c.username %>
+  </span>
+  <%= c.content %>
+  <br>
+  <% if c.image? %>
+    <%= image_tag c.image_url(:thumb).to_s %>
+  <% end %>
+<% end %>
+<hr>
+<h3>Comment
+<div class="toumei" >
+<%= form_for [@board,@board.comments.build] do |f| %>
+  <%= f.text_field :username,placeholder: 'user name' %>
+  <br>
+  <%= f.text_area :content,placeholder: 'comment' %>
+  <br>
+  <%= f.file_field :image  %>
+  <br>
+  <%= f.label "upload image with URL" %>
+  <br>
+  <%= f.text_field :remote_image_url %>
+  <br>
+  <%= f.submit %>
+<% end %>
+</div>
+</h3>
+<%= link_to 'edit this board',edit_board_path(@board) %>
+<%= link_to 'delete this board',board_path(@board),method: :delete,confirm: 'Are you ok?' %>
+<hr>
+<%= link_to 'back to index',boards_path() %>
+</body>

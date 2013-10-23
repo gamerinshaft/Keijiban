@@ -1,0 +1,17 @@
+<% if @comment.errors.any? %>
+  <h2>Some errors have occured.</h2>
+  <% @comment.errors.full_messages.each do |e| %>
+    <%= e %>
+  <% end %>
+<% end %>
+
+<hr>
+
+<%= form_for [@board,@comment] do |f| %>
+  <%= f.text_field :username,placeholder: 'user name' %>
+  <%= f.text_area :content,placeholder: 'comment' %>
+  <%= f.file_field :image %>
+  <%= f.text_field :remote_image_url %>
+  <br>
+  <%= f.submit %>
+<% end %>

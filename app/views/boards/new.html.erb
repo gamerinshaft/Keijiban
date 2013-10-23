@@ -1,0 +1,18 @@
+<body id="body" %>
+<% if @board.errors.any? %>
+  <h2>Somer errors have occured.</h2>
+  <% @board.errors.full_messages.each do |e| %>
+  <%= e %>
+  <% end %>
+  <hr>
+<% end %>
+
+
+<%= form_for @board do |f| %>
+  <%= f.text_field :name,placeholder: 'board name' %>
+  <%= f.submit %>
+<% end %>
+
+<hr>
+<%= link_to 'back to index',boards_path() %>
+</body>
